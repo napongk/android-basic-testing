@@ -6,19 +6,19 @@ package cc.somkiat.basicunittesting;
 
 class NameValidation {
 
-    public boolean validate(String name){
-        return isEmpty(name);
+//    public boolean validate(String name){
+//        return isEmpty(name);
+//    }
+
+    public boolean checkEmptyName(String name){
+        return name == null || name.equals("");
     }
 
-    public boolean isEmpty(String name) {
-        if(name.isEmpty()){
+    public boolean checkNameLengthPass(String name) {
+        if(name.length() < 2){
             return false;
         }
-        return true;
-    }
-
-    public boolean isNull(String name) {
-        if(name == null){
+        else if(name.length() > 20){
             return false;
         }
         return true;

@@ -46,30 +46,13 @@ public class MainActivity extends AppCompatActivity {
         sEditor = storage.edit();
 
         sEditor.putString("username", username.getText().toString());
-
-        if(validation.checkNullEMail(String.valueOf(email.getText()))){
-            Toast.makeText(this, "Null", Toast.LENGTH_SHORT).show();
-        }
-        else{
-            sEditor.putString("email", email.getText().toString());
-            Toast.makeText(this, String.valueOf(email.getText()), Toast.LENGTH_SHORT).show();
-        }
-
-
+        sEditor.putString("email", email.getText().toString());
         sEditor.putInt("date", ddmmyy.getDayOfMonth());
         sEditor.putInt("month", ddmmyy.getMonth());
         sEditor.putInt("year", ddmmyy.getYear());
         sEditor.apply();
-//        Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
 
-
-
-//        if(isValidEmail(email.getText().toString())){
-//            Toast.makeText(this, "Pattern OK", Toast.LENGTH_SHORT).show();
-//        }
-//        else{
-//            Toast.makeText(this, "Pattern NOT OK", Toast.LENGTH_SHORT).show();
-//        }
     }
 
     public void onRevertClick(View view) {
@@ -79,7 +62,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public static boolean isValidEmail(CharSequence target) {
-        return target != null && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
-    }
 }
