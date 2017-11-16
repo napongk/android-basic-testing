@@ -12,8 +12,12 @@ import java.util.regex.Pattern;
 
 public class EmailValidation {
 
+    public boolean checknullEmail(String email) {
+        return email == null;
+    }
+
     public boolean checkEmptyEMail(String email){
-        return email == null || email.equals("");
+        return email.equals("");
     }
 
     public boolean checkEmailPattern(CharSequence email) {
@@ -23,5 +27,10 @@ public class EmailValidation {
         pattern = Pattern.compile(EMAIL_PATTERN);
         matcher = pattern.matcher(email);
         return matcher.matches();
+        }
+
+    public boolean validate(String email){
+        return !checknullEmail(email) && !checkEmptyEMail(email) && checkEmailPattern(email);
     }
+
 }
